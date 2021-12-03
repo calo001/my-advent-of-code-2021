@@ -1,10 +1,10 @@
 fun main() {
     fun part1(input: List<String>): Int {
-        return part1Resolution(input) // 1564
+        return part1ResolutionDay1(input) // 1564
     }
 
     fun part2(input: List<String>): Int {
-        return part2Resolution(input) // 1611
+        return part2ResolutionDay1(input) // 1611
     }
 
     // test if implementation meets criteria from the description, like:
@@ -20,21 +20,7 @@ fun main() {
     println(footer())
 }
 
-fun footer(): String = """
-    
-         .-""${'"'}-.
-        /      o\
-       |    o   0).-.
-       |       .-;(_/     .-.
-        \     /  /)).---._|  `\   ,
-         '.  '  /((       `'-./ _/|
-           \  .'  )        .-.;`  /
-            '.             |  `\-'
-              '._        -'    /
-                 ``""--`------`
-""".trimIndent()
-
-fun part1Resolution(input: List<String>): Int {
+fun part1ResolutionDay1(input: List<String>): Int {
     return input.filterIndexed { index, depth ->
         val previousDepth = input.getOrNull(index - 1)?.toIntOrNull()
         val currentDepth = depth.toIntOrNull()
@@ -42,7 +28,7 @@ fun part1Resolution(input: List<String>): Int {
     }.count()
 }
 
-fun part2Resolution(input: List<String>): Int {
+fun part2ResolutionDay1(input: List<String>): Int {
     val windowedDepths = input.windowed(3)
         .map { it.sumOf { value -> value.toIntOrNull() ?: 0 } }
 
